@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajdip</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #121214;
+            color: #e1e1e6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h1.brand-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        #clock {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #04d361;
+        }
+
+        .search-box {
+            margin-bottom: 40px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            background: #202024;
+            border: 2px solid #29292e;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box input:focus {
+            border-color: #04d361;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .link-card {
+            background: #202024;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #a8a8b3;
+            border: 1px solid #29292e;
+            transition: all 0.2s;
+        }
+
+        .link-card:hover {
+            border-color: #04d361;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .link-card h3 {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Website Name -->
+        <h1 class="brand-name">Rajdip</h1>
+
+        <!-- Live Clock -->
+        <div id="clock">00:00:00</div>
+
+        <!-- Google Search Bar -->
+        <div class="search-box">
+            <form action="https://www.google.com/search" method="get">
+                <input type="text" name="q" placeholder="Search the web..." autofocus autocomplete="off">
+            </form>
+        </div>
+
+        <!-- Quick Links Grid -->
+        <div class="links-grid">
+            <a href="https://github.com" target="_blank" class="link-card">
+                <h3>GitHub</h3>
+            </a>
+            <a href="https://youtube.com" target="_blank" class="link-card">
+                <h3>YouTube</h3>
+            </a>
+            <a href="https://wikipedia.org" target="_blank" class="link-card">
+                <h3>Wikipedia</h3>
+            </a>
+            <a href="https://reddit.com" target="_blank" class="link-card">
+                <h3>Reddit</h3>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Function to update the clock every second
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000);
+        updateClock(); // Run immediately on load
+    </script>
+
+</body>
+</html>
